@@ -6,14 +6,13 @@ const cheerio = require("cheerio");
   try {
     const { data: html } = await axios({
       method: "get",
-      url: "https://reactnativetutorial.net/css-selectors/lesson2.html",
+      url: "https://reactnativetutorial.net/css-selectors/lesson6.html",
     });
     fs.writeFileSync("./test.html", html);
 
     const $ = cheerio.load(html);
 
-    const listOfH2 = $("h2");
-    listOfH2.each((index, element) => console.log($(element).text()));
+    console.log($("[data-customer='22293']").text());
   } catch (error) {
     throw error;
   }
